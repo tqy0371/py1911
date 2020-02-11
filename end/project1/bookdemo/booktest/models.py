@@ -14,6 +14,9 @@ class Book(models.Model):
     price = models.FloatField(default=0)
     pub_data = models.DateField(default="1983-06-01")
 
+    def __str__(self):
+        return self.title
+
 class Hero(models.Model):
     """
     hero继承了Model 也可以操作数据库
@@ -23,3 +26,6 @@ class Hero(models.Model):
     content = models.CharField(max_length=20)
     # book是一对多中的外键 on_delete代表删除主表数据时如何做
     book = models.ForeignKey(Book,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
