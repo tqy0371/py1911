@@ -66,5 +66,34 @@ def edithero(request,heroid):
         url = reverse("booktest:detail", args=(hero.book.id,))
         return redirect(to=url)
 
+def addbook(request):
+    if request.method == "GET":
+        return render(request, 'addbook.html')
+    elif request.method == "POST":
+        book = Book()
+        book.title = request.POST.get("booktitle")
+        book.price = request.POST.get("bookprice")
+        book.pub_data = request.POST.get("bookdata")
+        book.save()
+        return redirect(to="/")
+
+def editbook(request,bookid):
+    book = Book.objects.get(id=bookid)
+    book.pub_data = str(book.pub_data)
+    if request.method == "GET":
+        return render(request, "editbook.html", {"book":book})
+    elif request.method == "POST":
+        book.title = request.POST.get("title")
+        book.price = request.POST.get("price")
+        book.pub_data = request.POST.get("pub_data")
+        book.save()
+        url = reverse("booktest:index")
+        return redirect(to=url)
+
+def deletebook(request,bookid):
+    book = Book.objects.get(id=bookid)
+    book.delete()
+    url = reverse("booktest:index")
+    return redirect(to=url)
 # 使用Django模板
 

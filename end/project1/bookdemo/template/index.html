@@ -14,6 +14,8 @@
                 <a href="{% url 'booktest:detail' book.id %}">
 
                 {{book.id}}-{{book.title}}-{{book.price}}-{{book.pub_data}}
+                    <a href="{% url 'booktest:addbook' %}">增加</a>
+                    <a href="{% url 'booktest:editbook' book.id %}">编辑</a>
                     <a href="{% url 'booktest:deletebook' book.id %}">删除</a>
                 </a>
             </li>
