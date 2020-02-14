@@ -13,7 +13,7 @@
             <li>{{hero.name}}--{{hero.gender}}--{{hero.content}}</li>
             {% endfor %}
         </ul>
-        <a href="/booktest/index/">返回首页</a>
+        <a href="{% url 'booktest:index' %}">返回详情页</a>
     </div>
 </body>
 </html>

@@ -2,11 +2,11 @@ from django.contrib import admin
 from django.contrib.admin import ModelAdmin
 # 定义后端显示界面
 # Register your models here.
-# django自带的后天管理操作需要在此实现
+# django自带的后台管理操作需要在此实现
 
 # 注册自己需要管理的模型
 
-from .models import Book,Hero
+from .models import Book, Hero
 class HeroInline(admin.StackedInline):
     """
     定义关联类
