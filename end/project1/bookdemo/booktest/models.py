@@ -54,3 +54,23 @@ class User(models.Model):
         ordering = ["telephone"]
         verbose_name = "用户显示模型类a"
         verbose_name_plural = "用户模型类s"
+
+
+class Account(models.Model):
+    username = models.CharField(max_length=20,verbose_name="用户名")
+    password = models.CharField(max_length=20,verbose_name="密码")
+    regist_date = models.DateField(auto_now_add=True,verbose_name="注册日期")
+
+
+class Concact(models.Model):
+    telephone = models.CharField(max_length=11,verbose_name="手机号")
+    email = models.EmailField(default="1980739637@qq.com")
+    account = models.OneToOneField(Account,on_delete=models.CASCADE,related_name='con')
+
+class Article(models.Model):
+    title = models.CharField(max_length=20,verbose_name="标题")
+    sumary = models.TextField(verbose_name="正文")
+
+class Tag(models.Model):
+    name = models.CharField(max_length=20,verbose_name="标签名")
+    articles = models.ManyToManyField(Article)
