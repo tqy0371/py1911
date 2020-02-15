@@ -29,3 +29,28 @@ class Hero(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class UserManager(models.Manager):
+
+    def deleteByTelePhone(self,tele):
+        user = self.get(telephone=tele)
+        user.delete()
+
+    def createUser(self,tele):
+        user = User()
+        user.telephone = tele
+        user.save()
+
+
+
+class User(models.Model):
+    objects = UserManager()
+    telephone = models.CharField(max_length=11,null=True,blank=True,verbose_name="手机号码")
+    def __str__(self):
+        return self.telephone
+    class Meta:
+        db_table = "用户类"
+        ordering = ["telephone"]
+        verbose_name = "用户显示模型类a"
+        verbose_name_plural = "用户模型类s"

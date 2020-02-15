@@ -6,7 +6,7 @@ from django.contrib.admin import ModelAdmin
 
 # 注册自己需要管理的模型
 
-from .models import Book, Hero
+from .models import Book, Hero, User
 class HeroInline(admin.StackedInline):
     """
     定义关联类
@@ -32,3 +32,4 @@ class HeroAdmin(ModelAdmin):
 
 admin.site.register (Book, BookAdmin)
 admin.site.register (Hero, HeroAdmin)
+admin.site.register (User)
