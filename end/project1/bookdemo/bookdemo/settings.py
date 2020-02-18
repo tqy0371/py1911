@@ -45,7 +45,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -123,3 +123,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 #需要配置静态文件所处位置
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
+
+# 使用自定义的用户类作为Django的认证类需要使用配置
+AUTH_USER_MODEL = 'polls.User'

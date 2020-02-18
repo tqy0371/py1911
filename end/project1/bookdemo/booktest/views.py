@@ -95,5 +95,8 @@ def deletebook(request,bookid):
     book.delete()
     url = reverse("booktest:index")
     return redirect(to=url)
+
+def about(request):
+    return HttpResponse('这里是关于')
 # 使用Django模板
 

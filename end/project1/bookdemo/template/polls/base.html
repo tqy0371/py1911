@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>投票结果页</title>
+</head>
+<body>
+    <div class="content">
+        {% block header %}
+            <div>
+                {% if request.user and request.user.user.name != '' %}
+                    用户名：{{request.user.username}} <a href="{% url 'polls:logout' %}">退出</a>
+                {% else %}
+                    <a href="#">登录</a>
+                    <a href="#">注册</a>
+                {% endif %}
+
+            </div>
+
+        {% endblock %}
+
+        {% block body %}
+            这里是身体
+
+        {% endblock %}
+
+        {% block foot %}
+            这里是底部
+
+        {% endblock %}
+
+    </div>
+</body>
+</html>
