@@ -8,11 +8,11 @@
     <div class="content">
         {% block header %}
             <div>
-                {% if request.user and request.user.user.name != '' %}
+                {% if request.user and request.user.username != '' %}
                     用户名：{{request.user.username}} <a href="{% url 'polls:logout' %}">退出</a>
                 {% else %}
-                    <a href="#">登录</a>
-                    <a href="#">注册</a>
+                    <a href="{% url 'polls:login' %}">登录</a>
+                    <a href="{% url 'polls:regist' %}">注册</a>
                 {% endif %}
 
             </div>
