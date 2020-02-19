@@ -121,8 +121,9 @@ def regist(request):
                 return render(request, 'polls/regist.html', {'errors':'用户名已存在'})
             else:
                 if password == password2:
-                    User.objects.create_user(username=username, password=password)
+                    # User.objects.create_user(username=username, password=password)
                     url = reverse("polls:login")
+                    rf.save()
                     return redirect(to=url)
                 else:
                     # return HttpResponse("密码不一致")
